@@ -6,9 +6,10 @@ const recipeList = document.querySelector("#recipeList")
 export default {
     registerDeleteListener () {
         recipeList.addEventListener("click", event => {
-            if (event.target.id.startsWith("deleteRecipe00")) {
+            if (event.target.id.startsWith("deleteRecipe--")) {
                 // Extract recipe id from the button's id attribute
-                const recipeToDelete = event.target.id.split("--"[1])
+                const recipeToDelete = event.target.id.split("--")[1]
+                console.log(recipeToDelete)
 
                 // Invoke the delete method, then get all recipes and render them
                 apiActions.deleteRecipe(recipeToDelete)
